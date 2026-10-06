@@ -1,0 +1,36 @@
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfplan
+crash.log
+crash.*.log
+*.tfvars
+*.tfvars.json
+!*.tfvars.example
+.DS_Store
+.vscode/
+.idea/
+
+# Terraform variable files
+*.tfvars
+*.tfvars.json
+
+# Exception: keep example variable files
+!*.tfvars.example
+
+# Terraform lock file
+# Keep this committed for provider version consistency
+#.terraform.lock.hcl
+
+# macOS
+.DS_Store
+
+# IDE
+.idea/
+.vscode/
+
+# OS / editor temporary files
+*.swp
+*.swo
+*~
