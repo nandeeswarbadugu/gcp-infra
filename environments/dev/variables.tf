@@ -15,4 +15,4 @@ variable "zone" {
   default     = "us-central1-a"
 }
 
-# added terraform apply
+# added terraform appl
