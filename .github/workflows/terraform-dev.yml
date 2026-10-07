@@ -1,6 +1,20 @@
 name: Terraform Dev
 # testing terraform actions on github
 on:
+
+  # workflow dispatch that does the customization to apply or destroy
+  workflow_dispatch:
+    inputs:
+      action:
+        description: "Choose Terraform action"
+        required: true
+        type: choice
+        options:
+          - plan
+          - apply
+          - destroy
+        default: plan
+  
   pull_request:
     paths:
       - "environments/dev/**"
@@ -51,8 +65,16 @@ jobs:
         run: terraform validate
 
       - name: Terraform Plan
+        if: github.event_name != 'workflow_dispatch' || inputs.action == 'plan'
         working-directory: ${{ env.TF_WORKING_DIR }}
         run: terraform plan
+
       - name: Terraform Apply
+        if: github.event_name == 'workflow_dispatch' && inputs.action == 'apply'
         working-directory: ${{ env.TF_WORKING_DIR }}
         run: terraform apply -auto-approve
+      
+      - name: Terraform Destroy
+        if: github.event_name == 'workflow_dispatch' && inputs.action == 'destroy'
+        working-directory: ${{ env.TF_WORKING_DIR }}
+        run: terraform destroy -auto-approve

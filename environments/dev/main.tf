@@ -9,3 +9,5 @@ resource "google_storage_bucket" "dev_test" {
     managed_by  = "terraform"
   }
 }
+
+# destroying resources created through terraform
