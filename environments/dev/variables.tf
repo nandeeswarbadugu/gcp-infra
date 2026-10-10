@@ -1,18 +1,17 @@
+
 variable "project_id" {
-  description = "GCP project ID"
+  description = "GCP Project ID for development"
   type        = string
 }
 
-variable "region" {
-  description = "GCP region"
+variable "default_region" {
+  description = "Default GCP region for resources"
   type        = string
-  default     = "us-central1"
+  
 }
 
-variable "zone" {
-  description = "GCP zone"
+variable "environment" {
+  description = "Target deployment environment"
   type        = string
-  default     = "us-central1-a"
+  
 }
-
-# added terraform appl
