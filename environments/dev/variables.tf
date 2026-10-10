@@ -7,11 +7,11 @@ variable "project_id" {
 variable "default_region" {
   description = "Default GCP region for resources"
   type        = string
-  
+
 }
 
 variable "environment" {
   description = "Target deployment environment"
   type        = string
-  
+
 }
