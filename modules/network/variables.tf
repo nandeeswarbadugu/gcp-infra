@@ -3,12 +3,6 @@ variable "project_id" {
   type        = string
 }
 
-variable "default_region" {
-    description = "GCP default region if region wasn't mentioned"
-    type = string
-  
-}
-
 variable "network_name" {
   description = "Name of the VPC network."
   type        = string
